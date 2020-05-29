@@ -13,9 +13,9 @@
 `catkin_make`
 
 ## Open one more new terminal run below command in both terminals:
-> Lets sets the parameter specific to ros version (here melodic), must do once in each terminal
+> Lets sets the parameter specific to ros version (here melodic), must do once in each terminal\
 `source /opt/ros/melodic/setup.bash `
-> Lets sets the parameter specific to ros workspace (here mtc_ws), must do everytime after building the workspace
+> Lets sets the parameter specific to ros workspace (here mtc_ws), must do everytime after building the workspace\
 `source devel/setup.bash`
 
 ## Run the demo
