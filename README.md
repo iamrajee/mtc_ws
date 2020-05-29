@@ -19,6 +19,6 @@
 `source devel/setup.bash`
 
 ## Run the demo
-> Terminal 1: `roslaunch mtc_pickplace jaco_demo.launch`
-> Terminal 2: `roslaunch mtc_pickplace pickplce.launch`
+Terminal 1: `roslaunch mtc_pickplace jaco_demo.launch`
+Terminal 2: `roslaunch mtc_pickplace pickplce.launch`
 
