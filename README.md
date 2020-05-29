@@ -4,7 +4,7 @@
 > To avoid conflit with ROS env variable
 
 ## Clone the workspace
-> git clone https://github.com/iamrajee/mtc_ws.git
+> `git clone https://github.com/iamrajee/mtc_ws.git`
 
 ## Move to folder
 > cd mtc_ws
