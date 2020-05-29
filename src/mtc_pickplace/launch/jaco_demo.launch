@@ -42,7 +42,7 @@
 
   <!-- =================== Rviz ================= -->
   <node name="$(anon rviz)" pkg="rviz" type="rviz" respawn="false" args="-d $(find mtc_pickplace)/config/mtc.rviz">
-    <rosparam command="load" file="$(find panda_moveit_config)/config/kinematics.yaml"/>
+    <rosparam command="load" file="$(find j2s6s300_moveit_config)/config/kinematics.yaml"/>
   </node>
 
 </launch>

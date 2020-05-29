@@ -4,11 +4,12 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /MotionPlanning1
-        - /TF1
         - /TF1/Frames1
-      Splitter Ratio: 0.74256
-    Tree Height: 332
+        - /Motion Planning Tasks1/Status1
+        - /PlanningScene1
+        - /PlanningScene1/Status1
+      Splitter Ratio: 0.5104166865348816
+    Tree Height: 790
   - Class: rviz/Help
     Name: Help
   - Class: rviz/Views
@@ -16,6 +17,31 @@ Panels:
       - /Current View1
     Name: Views
     Splitter Ratio: 0.5
+  - Class: moveit_task_constructor/Motion Planning Tasks
+    Global Settings:
+      Task View Settings:
+        Task Expansion: All Expanded
+    Name: Motion Planning Tasks
+    Tasks View:
+      property_splitter:
+        - 671
+        - 209
+      solution_sorting:
+        column: 0
+        order: 1
+      solutions_splitter:
+        - 515
+        - 70
+      solutions_view_columns: ~
+      tasks_view_columns:
+        - 342
+        - 57
+        - 57
+        - 57
+Preferences:
+  PromptSaveOnExit: true
+Toolbars:
+  toolButtonStyle: 2
 Visualization Manager:
   Class: ""
   Displays:
@@ -25,7 +51,7 @@ Visualization Manager:
       Color: 160; 160; 164
       Enabled: true
       Line Style:
-        Line Width: 0.03
+        Line Width: 0.029999999329447746
         Value: Lines
       Name: Grid
       Normal Cell Count: 0
@@ -37,28 +63,43 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Class: moveit_rviz_plugin/MotionPlanning
+    - Class: rviz/TF
       Enabled: true
-      Move Group Namespace: ""
-      MoveIt_Goal_Tolerance: 0
-      MoveIt_Planning_Attempts: 10
-      MoveIt_Planning_Time: 5
-      MoveIt_Use_Constraint_Aware_IK: true
-      MoveIt_Warehouse_Host: 127.0.0.1
-      MoveIt_Warehouse_Port: 33829
-      MoveIt_Workspace:
-        Center:
-          X: 0
-          Y: 0
-          Z: 0
-        Size:
-          X: 2
-          Y: 2
-          Z: 2
-      Name: MotionPlanning
-      Planned Path:
-        Color Enabled: false
-        Interrupt Display: false
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        end:
+          Value: true
+        start:
+          Value: true
+        world:
+          Value: false
+        world_new:
+          Value: true
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        world:
+          world_new:
+            end:
+              {}
+            start:
+              {}
+      Update Interval: 0
+      Value: true
+    - Class: moveit_task_constructor/Motion Planning Tasks
+      Enabled: true
+      Interrupt Display: false
+      Loop Animation: false
+      Markers:
+        All at once?: false
+        Value: true
+      Name: Motion Planning Tasks
+      Robot:
+        Fixed Robot Color: 150; 50; 150
         Links:
           All Links Enabled: true
           Expand Joint Details: false
@@ -69,7 +110,6 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-            Value: true
           j2s6s300_link_1:
             Alpha: 1
             Show Axes: false
@@ -139,45 +179,40 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-            Value: true
           world:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-        Loop Animation: true
         Robot Alpha: 0.5
-        Robot Color: 150; 50; 150
         Show Robot Collision: false
         Show Robot Visual: true
-        Show Trail: false
-        State Display Time: 0.05 s
-        Trail Step Size: 1
-        Trajectory Topic: move_group/display_planned_path
-      Planning Metrics:
-        Payload: 1
-        Show Joint Torques: false
-        Show Manipulability: false
-        Show Manipulability Index: false
-        Show Weight Limit: false
-        TextHeight: 0.08
-      Planning Request:
-        Colliding Link Color: 255; 0; 0
-        Goal State Alpha: 1
-        Goal State Color: 250; 128; 0
-        Interactive Marker Size: 0
-        Joint Violation Color: 255; 0; 255
-        Planning Group: arm
-        Query Goal State: true
-        Query Start State: false
-        Show Workspace: false
-        Start State Alpha: 1
-        Start State Color: 0; 255; 0
-      Planning Scene Topic: move_group/monitored_planning_scene
+        Use Fixed Robot Color: false
+        Value: ""
+      Robot Description: robot_description
+      Scene:
+        Attached Body Color: 150; 50; 150
+        Scene Alpha: 0.8999999761581421
+        Scene Color: 50; 230; 50
+        Value: true
+        Voxel Coloring: Z-Axis
+        Voxel Rendering: Occupied Voxels
+      Show Trail: false
+      State Display Time: 0.05 s
+      Task Solution Topic: /main/solution
+      Tasks:
+        pick_place_task: 10
+      Trail Step Size: 1
+      Value: true
+    - Class: moveit_rviz_plugin/PlanningScene
+      Enabled: true
+      Move Group Namespace: ""
+      Name: PlanningScene
+      Planning Scene Topic: /move_group/monitored_planning_scene
       Robot Description: robot_description
       Scene Geometry:
-        Scene Alpha: 1
+        Scene Alpha: 0.8999999761581421
         Scene Color: 50; 230; 50
-        Scene Display Time: 0.2
+        Scene Display Time: 0.009999999776482582
         Show Scene Geometry: true
         Voxel Coloring: Z-Axis
         Voxel Rendering: Occupied Voxels
@@ -193,7 +228,6 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-            Value: true
           j2s6s300_link_1:
             Alpha: 1
             Show Axes: false
@@ -263,83 +297,26 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-            Value: true
           world:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-        Robot Alpha: 0.5
+        Robot Alpha: 1
         Show Robot Collision: false
         Show Robot Visual: true
       Value: true
-    - Class: rviz/TF
+    - Class: rviz/MarkerArray
       Enabled: true
-      Frame Timeout: 15
-      Frames:
-        All Enabled: false
-        j2s6s300_end_effector:
-          Value: true
-        j2s6s300_link_1:
-          Value: false
-        j2s6s300_link_2:
-          Value: false
-        j2s6s300_link_3:
-          Value: false
-        j2s6s300_link_4:
-          Value: false
-        j2s6s300_link_5:
-          Value: false
-        j2s6s300_link_6:
-          Value: false
-        j2s6s300_link_base:
-          Value: false
-        j2s6s300_link_finger_1:
-          Value: false
-        j2s6s300_link_finger_2:
-          Value: false
-        j2s6s300_link_finger_3:
-          Value: false
-        j2s6s300_link_finger_tip_1:
-          Value: false
-        j2s6s300_link_finger_tip_2:
-          Value: false
-        j2s6s300_link_finger_tip_3:
-          Value: false
-        root:
-          Value: false
-        world:
-          Value: false
-      Marker Scale: 1
-      Name: TF
-      Show Arrows: true
-      Show Axes: true
-      Show Names: true
-      Tree:
-        world:
-          root:
-            j2s6s300_link_base:
-              j2s6s300_link_1:
-                j2s6s300_link_2:
-                  j2s6s300_link_3:
-                    j2s6s300_link_4:
-                      j2s6s300_link_5:
-                        j2s6s300_link_6:
-                          j2s6s300_end_effector:
-                            {}
-                          j2s6s300_link_finger_1:
-                            j2s6s300_link_finger_tip_1:
-                              {}
-                          j2s6s300_link_finger_2:
-                            j2s6s300_link_finger_tip_2:
-                              {}
-                          j2s6s300_link_finger_3:
-                            j2s6s300_link_finger_tip_3:
-                              {}
-      Update Interval: 0
+      Marker Topic: /move_group/display_grasp_markers
+      Name: MarkerArray
+      Namespaces:
+        {}
+      Queue Size: 100
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
+    Default Light: true
     Fixed Frame: world
     Frame Rate: 30
   Name: root
@@ -352,38 +329,41 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 2.56152
+      Distance: 2.77933406829834
       Enable Stereo Rendering:
-        Stereo Eye Separation: 0.06
+        Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.113567
-        Y: 0.10592
-        Z: 2.23518e-07
+        X: 0.11356700211763382
+        Y: 0.10592000186443329
+        Z: 2.2351800055275817e-7
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
       Name: Current View
-      Near Clip Distance: 0.01
-      Pitch: 1.4148
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 0.4548010230064392
       Target Frame: world
       Value: XYOrbit (rviz)
-      Yaw: 0.0267762
+      Yaw: 2.226776361465454
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1028
+  Height: 1025
   Help:
     collapsed: false
   Hide Left Dock: false
   Hide Right Dock: false
-  MotionPlanning:
+  Motion Planning Tasks:
     collapsed: false
-  MotionPlanning - Slider:
+  Motion Planning Tasks - Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000002a2000003befc0200000007fb000000100044006900730070006c0061007900730100000028000001e1000000dd00fffffffb0000000800480065006c00700000000342000000bb0000007600fffffffb0000000a0056006900650077007300000003b0000000b0000000b000fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb0000002e004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d00200053006c00690064006500720000000000ffffffff0000004a00fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e0067010000020f000001d7000001cc00ffffff0000047c000003be00000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000200000000000002a2000003a7fc020000000afb000000100044006900730070006c006100790073010000003d000003a7000000c900fffffffb0000000800480065006c00700000000342000000bb0000006e00fffffffb0000000a0056006900650077007300000003b0000000b0000000a400fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb0000002e004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d00200053006c00690064006500720000000000ffffffff0000000000000000fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670000000218000001cc0000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000000000000000fb000000120020002d00200053006c00690064006500720000000000ffffffff0000000000000000fb0000003c004d006f00740069006f006e00200050006c0061006e006e0069006e00670020005400610073006b00730020002d00200053006c00690064006500720000000000ffffffff0000004100ffffff000000010000024d000003a7fc0200000001fb0000002a004d006f00740069006f006e00200050006c0061006e006e0069006e00670020005400610073006b0073010000003d000003a7000000e500ffffff00000285000003a700000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
-  Width: 1828
-  X: 82
-  Y: 14
+  Width: 1920
+  X: 0
+  Y: 27
