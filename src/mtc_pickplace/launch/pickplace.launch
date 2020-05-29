@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!-- moveit_task_constructor_demo -->
+  <node name="main" pkg="mtc_pickplace" type="main" output="screen">
+    <param name="execute" value="true" />
+    <!-- <rosparam command="load" file="$(find mtc_pickplace)/config/panda_config.yaml" /> -->
+    <rosparam command="load" file="$(find mtc_pickplace)/config/jaco_config.yaml" />
+  </node>
+
+  <node name="tfBroadcaster" pkg="mtc_pickplace" type="tfBroadcaster" output="screen">
+    <!-- <rosparam command="load" file="$(find mtc_pickplace)/config/panda_config.yaml" /> -->
+    <rosparam command="load" file="$(find mtc_pickplace)/config/jaco_config.yaml" />
+  </node>
+
+</launch>

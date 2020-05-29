@@ -1,0 +1,89 @@
+# execute: true
+# main/execute: true
+# /main/execute: true
+
+# Total planning attempts
+planning_attempts: 10
+
+# Planning group and link names
+arm_group_name: "arm"
+eef_name: "end_effector"
+hand_group_name: "gripper"
+# hand_frame: "j2n6s300_end_effector"
+hand_frame: "j2s6s300_end_effector"
+
+# Poses
+hand_open_pose: "Open"
+hand_close_pose: "Close"
+arm_home_pose: "Vertical"
+
+# Scene frames
+world_frame: "world_new"
+table_reference_frame: "world_new"
+object_reference_frame: "world_new"
+surface_link: "table"
+
+# Collision object for picking
+# CYLINDER object specifications
+# object_name: "foot"
+# object_dimensions: [0.30, 0.03] # [height, radius]
+# object_pose: [0, 0, -0.16, 0, 0, 0]
+
+object_name: "foot"
+object_dimensions: [0.30, 0.03]
+object_pose: [0, 0, -0.16, 0, 0, 0]
+
+object2_name: "foot2"
+object2_dimensions: [0.30, 0.03]
+object2_pose: [2, 0, -0.16, 0, 0, 0]
+
+object3_name: "foot3"
+object3_dimensions: [0.30, 0.03]
+object3_pose: [2, 1, -0.16, 0, 0, 0]
+
+object4_name: "foot4"
+object4_dimensions: [0.30, 0.03]
+object4_pose: [0, 1, -0.16, 0, 0, 0]
+
+# Table model
+spawn_table: true
+table_name: "table"
+# table_dimensions: [0.5, 1.0, 0.1]  # [length, width, height]
+# table_pose: [0.5, 0.0, -0.1, 0, 0, 0]
+table_dimensions: [2, 1.0, 0.1]  # [length, width, height]
+table_pose: [1, 0.5, -0.06, 0, 0, 0]
+
+# Gripper grasp frame transform [x,y,z,r,p,y]
+# grasp_frame_transform: [0, 0.05, 0.03, -1.57, 0.0, 1.57]
+# grasp_frame_transform: [0, 0.0, 0.03, -1.57, 0.0, 1.57]
+grasp_frame_transform: [0, 0.0, 0.0, 3.14, 0.0, 0]
+
+# Place pose [x,y,z,r,p,y]
+# place_pose: [0.4, 0.25, 0, 0, 0, 1.57]
+# place_pose: [0.5, -0.25, 0.02, 1.571,-1.571,0]
+# place_pose: [0.0, 0.5, 0.202, 0,0,0] #demo
+place_pose: [0.4, 0.0, 0.402, 0,0,0] #easy test
+place_surface_offset: 0.0001 # place offset from table
+
+# Valid distance range when approaching an object for picking
+approach_object_min_dist: 0.1
+approach_object_max_dist: 0.15
+
+# Valid height range when lifting an object after pick
+lift_object_min_dist: 0.01
+lift_object_max_dist: 0.1
+
+
+mesh_name  : "screwdriver"
+mesh_reference_frame : "world_new"
+mesh_dimensions : [0.202, 0.03] #h,r
+# mesh_pose : [0.5, -0.25, 0.02, 1.571,0,0] #x,y,z,r,p,y
+# mesh_pose : [0.5, 0, 0.202, 0, 0, 0] #x,y,z,r,p,y #demo
+mesh_pose : [0.5, 0, 0.402, 0, 0, 0] #x,y,z,r,p,y #easy test
+mesh_file  : "package://mtc_pickplace/meshes/screwdriver.stl"
+
+
+table2_name: "table2"
+table2_dimensions: [0.5, 0.05, 0.5]  # [length, width, height]
+table2_pose: [0.5, 0, 0.25, 0, 0, 0] 
+# surface2_link: "{{ table2_name }}"
