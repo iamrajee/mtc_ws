@@ -3,6 +3,8 @@ build_isolated/
 devel/
 devel_isolated/
 extras/
-#src/mtc_pickplace/
+src/mtc_pickplace/config/panda_config.yaml
+src/mtc_pickplace/launch/panda_demo.launch
+src/mtc_pickplace/src/mtc_pickplace/
 #.rosinstall
 #*.bag
