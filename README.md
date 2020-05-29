@@ -1,7 +1,7 @@
 # Instruction
 
 ## Open new terminal
-> To avoid conflit with ROS env variable. Also make sure you're not sourcing any other workspace in your .bashrc i.e remove if there is line like this `source ~/catkin_ws/devel/setup.bash`.
+> To avoid conflit with ROS env variable. Also make sure you're not sourcing any other workspace in your ~/.bashrc i.e remove if there is line like this `source ~/catkin_ws/devel/setup.bash` in ~/.bashrc and open new terminal. 
 
 ## Clone the workspace
 `git clone https://github.com/iamrajee/mtc_ws.git`
